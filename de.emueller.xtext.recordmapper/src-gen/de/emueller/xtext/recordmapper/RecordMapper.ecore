@@ -1,0 +1,52 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ecore:EPackage xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xmlns:ecore="http://www.eclipse.org/emf/2002/Ecore" name="recordMapper" nsURI="http://www.emueller.de/xtext/recordmapper/RecordMapper"
+    nsPrefix="recordMapper">
+  <eClassifiers xsi:type="ecore:EClass" name="RecordMappperFile">
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="package" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="imports" upperBound="-1"
+        eType="#//Import" containment="true"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="declarations" upperBound="-1"
+        eType="#//Declaration" containment="true"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="Import">
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="model" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="Declaration">
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="type" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="name" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="Object" eSuperTypes="#//Declaration">
+    <eStructuralFeatures xsi:type="ecore:EReference" name="fields" upperBound="-1"
+        eType="#//Field" containment="true"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="Enum" eSuperTypes="#//Declaration">
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="values" unique="false"
+        upperBound="-1" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="Field">
+    <eStructuralFeatures xsi:type="ecore:EReference" name="type" eType="#//Type" containment="true"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="name" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="annotation" eType="#//Annotation"
+        containment="true"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="Annotation">
+    <eStructuralFeatures xsi:type="ecore:EReference" name="entries" upperBound="-1"
+        eType="#//Entry" containment="true"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="Entry">
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="key" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="value" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="BaseType" eSuperTypes="#//Type">
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="type" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="ListType" eSuperTypes="#//Type">
+    <eStructuralFeatures xsi:type="ecore:EReference" name="record" eType="#//Object"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="baseType" eType="#//BaseType"
+        containment="true"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="Type">
+    <eStructuralFeatures xsi:type="ecore:EReference" name="decl" eType="#//Declaration"/>
+  </eClassifiers>
+</ecore:EPackage>

@@ -1,0 +1,51 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<genmodel:GenModel xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:ecore="http://www.eclipse.org/emf/2002/Ecore"
+    xmlns:genmodel="http://www.eclipse.org/emf/2002/GenModel" modelDirectory="/de.emueller.xtext.recordmapper/src-gen" editDirectory="/de.emueller.xtext.recordmapper.edit/src"
+    editorDirectory="/de.emueller.xtext.recordmapper.editor/src" modelPluginID="de.emueller.xtext.recordmapper"
+    forceOverwrite="true" modelName="RecordMapper" updateClasspath="false" rootExtendsClass="org.eclipse.emf.ecore.impl.MinimalEObjectImpl$Container"
+    complianceLevel="5.0" copyrightFields="false" editPluginID="de.emueller.xtext.recordmapper.edit"
+    editorPluginID="de.emueller.xtext.recordmapper.editor" runtimeVersion="2.9">
+  <genPackages prefix="RecordMapper" basePackage="de.emueller.xtext.recordmapper"
+      disposableProviderFactory="true" fileExtensions="cr" ecorePackage="RecordMapper.ecore#/">
+    <genClasses ecoreClass="RecordMapper.ecore#//RecordMappperFile">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute RecordMapper.ecore#//RecordMappperFile/package"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference RecordMapper.ecore#//RecordMappperFile/imports"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference RecordMapper.ecore#//RecordMappperFile/declarations"/>
+    </genClasses>
+    <genClasses ecoreClass="RecordMapper.ecore#//Import">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute RecordMapper.ecore#//Import/model"/>
+    </genClasses>
+    <genClasses ecoreClass="RecordMapper.ecore#//Declaration">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute RecordMapper.ecore#//Declaration/type"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute RecordMapper.ecore#//Declaration/name"/>
+    </genClasses>
+    <genClasses ecoreClass="RecordMapper.ecore#//Object">
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference RecordMapper.ecore#//Object/fields"/>
+    </genClasses>
+    <genClasses ecoreClass="RecordMapper.ecore#//Enum">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute RecordMapper.ecore#//Enum/values"/>
+    </genClasses>
+    <genClasses ecoreClass="RecordMapper.ecore#//Field">
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference RecordMapper.ecore#//Field/type"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute RecordMapper.ecore#//Field/name"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference RecordMapper.ecore#//Field/annotation"/>
+    </genClasses>
+    <genClasses ecoreClass="RecordMapper.ecore#//Annotation">
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference RecordMapper.ecore#//Annotation/entries"/>
+    </genClasses>
+    <genClasses ecoreClass="RecordMapper.ecore#//Entry">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute RecordMapper.ecore#//Entry/key"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute RecordMapper.ecore#//Entry/value"/>
+    </genClasses>
+    <genClasses ecoreClass="RecordMapper.ecore#//BaseType">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute RecordMapper.ecore#//BaseType/type"/>
+    </genClasses>
+    <genClasses ecoreClass="RecordMapper.ecore#//ListType">
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference RecordMapper.ecore#//ListType/record"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference RecordMapper.ecore#//ListType/baseType"/>
+    </genClasses>
+    <genClasses ecoreClass="RecordMapper.ecore#//Type">
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference RecordMapper.ecore#//Type/decl"/>
+    </genClasses>
+  </genPackages>
+</genmodel:GenModel>

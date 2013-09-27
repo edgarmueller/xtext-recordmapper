@@ -1,0 +1,75 @@
+grammar de.emueller.xtext.recordmapper.RecordMapper with org.eclipse.xtext.xbase.Xbase
+
+generate recordMapper "http://www.emueller.de/xtext/recordmapper/RecordMapper"
+
+
+RecordMappperFile:
+	'package' package=ValidID
+	imports+=Import* 
+	declarations+=Declaration*
+;
+
+Import:   
+  'import' model=STRING;
+
+Declaration:
+	Object | Enum
+;
+
+Object:
+	type='object' name=ValidID '{'
+		(fields+=Field)*
+	'}'
+;
+
+Enum:
+	type='enum' name=ValidID '{'
+		(values+=ValidID)+
+	'}'
+;
+
+Field:
+	type=Type name=ValidID annotation=Annotation?
+;
+
+Annotation:
+	'{' entries+=Entry+ '}'
+;
+
+Entry:
+	key=ValidID "->" value=ValidID 
+;
+
+BooleanType:
+	'bool'
+;
+
+IntegerType:
+	'int'
+;
+
+DoubleType:
+	'double'
+;
+
+StringType:
+	'string'
+;
+
+DateTimeType:
+	'datetime'
+;
+
+BaseType:
+	type=(BooleanType | IntegerType | DoubleType | StringType | DateTimeType)
+;
+
+ListType:
+	'list' record=[Object]
+	| 'list' baseType=BaseType 
+;
+
+Type:
+	BaseType | ListType | decl=[Declaration]
+;
+
